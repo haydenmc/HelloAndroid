@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -20,5 +22,17 @@ public class MainActivity extends AppCompatActivity
         TodoItemAdapter adapter = new TodoItemAdapter(listItems);
         todoItemsRecyclerView.setAdapter(adapter);
         todoItemsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        Intent navBarUpdate = new Intent("android.intent.action.CHANGE_NAV_BAR");
+        navBarUpdate.putExtra("left", "LEFT");
+        navBarUpdate.putExtra("center", "CENTER");
+        navBarUpdate.putExtra("right", "RIGHT");
+        navBarUpdate.putExtra("clear_overlays", true);
+        sendBroadcast(navBarUpdate);
     }
 }

@@ -1,5 +1,6 @@
 package fyi.hayden.helloandroid;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,14 @@ public class TodoItemAdapter extends RecyclerView.Adapter<TodoItemAdapter.ViewHo
         {
             super(view);
             textView = view.findViewById(R.id.body_text);
+            view.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Log.d("TodoItemAdapter", "Element " + getAdapterPosition() + " clicked.");
+                }
+            });
         }
 
         public TextView getTextView()
