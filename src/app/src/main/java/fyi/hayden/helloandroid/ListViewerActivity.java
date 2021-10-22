@@ -6,9 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 
-public class MainActivity extends AppCompatActivity
+public class ListViewerActivity extends AppCompatActivity
 {
     private RecyclerView todoItemsRecyclerView;
     private String listItems[] = { "Test Item One", "Test Item Two", "Test Item Three" };
@@ -17,9 +16,9 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list_viewer);
         todoItemsRecyclerView = findViewById(R.id.list_todo_items);
-        TodoItemAdapter adapter = new TodoItemAdapter(listItems);
+        ListItemAdapter adapter = new ListItemAdapter(listItems);
         todoItemsRecyclerView.setAdapter(adapter);
         todoItemsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

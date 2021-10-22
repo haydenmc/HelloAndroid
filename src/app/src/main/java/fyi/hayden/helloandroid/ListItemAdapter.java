@@ -9,9 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
-
-public class TodoItemAdapter extends RecyclerView.Adapter<TodoItemAdapter.ViewHolder>
+public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHolder>
 {
     private String[] dataSet;
 
@@ -39,7 +37,7 @@ public class TodoItemAdapter extends RecyclerView.Adapter<TodoItemAdapter.ViewHo
         }
     }
 
-    public TodoItemAdapter(String[] dataSet)
+    public ListItemAdapter(String[] dataSet)
     {
         this.dataSet = dataSet;
     }

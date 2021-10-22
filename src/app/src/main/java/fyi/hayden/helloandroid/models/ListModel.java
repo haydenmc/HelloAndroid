@@ -1,10 +1,10 @@
 package fyi.hayden.helloandroid.models;
 
-public class TodoList
+public class ListModel
 {
     private String name;
 
-    public TodoList(String name)
+    public ListModel(String name)
     {
         this.name = name;
     }

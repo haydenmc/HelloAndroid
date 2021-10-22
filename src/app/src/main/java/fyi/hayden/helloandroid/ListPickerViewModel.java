@@ -7,23 +7,23 @@ import androidx.lifecycle.ViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import fyi.hayden.helloandroid.models.TodoList;
+import fyi.hayden.helloandroid.models.ListModel;
 
 public class ListPickerViewModel extends ViewModel
 {
-    private MutableLiveData<List<TodoList>> todoLists;
+    private MutableLiveData<List<ListModel>> todoLists;
 
     public ListPickerViewModel()
     {
-        todoLists = new MutableLiveData<List<TodoList>>();
-        List<TodoList> items = new ArrayList<>();
-        items.add(new TodoList("List One"));
-        items.add(new TodoList("List Two"));
-        items.add(new TodoList("List Three"));
+        todoLists = new MutableLiveData<List<ListModel>>();
+        List<ListModel> items = new ArrayList<>();
+        items.add(new ListModel("List One"));
+        items.add(new ListModel("List Two"));
+        items.add(new ListModel("List Three"));
         todoLists.setValue(items);
     }
 
-    public LiveData<List<TodoList>> getTodoLists()
+    public LiveData<List<ListModel>> getTodoLists()
     {
         return todoLists;
     }

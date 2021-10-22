@@ -1,16 +1,14 @@
 package fyi.hayden.helloandroid;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
-
-import fyi.hayden.helloandroid.models.TodoList;
+import fyi.hayden.helloandroid.models.ListModel;
 
 public class ListPickerActivity extends AppCompatActivity
 {
@@ -24,12 +22,18 @@ public class ListPickerActivity extends AppCompatActivity
         setContentView(R.layout.activity_list_picker);
         viewModel = new ViewModelProvider(this).get(ListPickerViewModel.class);
         listRecyclerView = findViewById(R.id.list_list);
-        TodoListAdapter adapter = new TodoListAdapter(viewModel.getTodoLists().getValue());
+        ListModelAdapter adapter = new ListModelAdapter(viewModel.getTodoLists().getValue(),
+            item -> listSelected(item));
         viewModel.getTodoLists().observe(this, todoListList ->
         {
             adapter.setData(todoListList);
         });
         listRecyclerView.setAdapter(adapter);
         listRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private void listSelected(ListModel list)
+    {
+        Toast.makeText(getApplicationContext(), "'" + list.getName() + "' clicked", Toast.LENGTH_SHORT).show();
     }
 }
